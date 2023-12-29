@@ -212,7 +212,7 @@ int32_t YangVideoCaptureLinux::init() {
 	char devStr[30];
 	memset(devStr, 0, 30);
 	sprintf(devStr, "/dev/video%d", cameraIndex);
-
+    yang_info("capture from:%s",devStr);
 	if ((m_vd_id = open(devStr, O_RDWR)) == -1) {
 		yang_error("open video device Error!");
 		return ERROR_SYS_Linux_VideoDeveceOpenFailure;

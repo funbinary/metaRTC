@@ -36,7 +36,7 @@ PushCtl::PushCtl() {
     char s[128] = {0};
     memset(m_context->avinfo.rtc.localIp, 0, sizeof(m_context->avinfo.rtc.localIp));
     yang_getLocalInfo(m_context->avinfo.sys.familyType, m_context->avinfo.rtc.localIp);
-    sprintf(s, "https://192.168.3.247:8443/index/api/whip?app=live&stream=test");
+    sprintf(s, "http://192.168.3.247:9060/index/api/whip?app=live&stream=test");
 
     m_hasAudio = m_videoType == Yang_VideoSrc_Screen ? false : true;
 
@@ -88,7 +88,7 @@ void PushCtl::start() {
     if (!m_isStartpush) {
         yang_info("start");
         m_isStartpush = !m_isStartpush;
-        m_url = "https://192.168.3.247:8443/index/api/whip?app=live&stream=test";
+        m_url = "http://192.168.3.247:9060/index/api/whip?app=live&stream=test";
         yang_post_message(YangM_Push_Connect_Whip, 0,
                           NULL, (void *) m_url.c_str());
         // yang_post_message(YangM_Push_Connect,0,NULL,(void*)m_url.c_str());
