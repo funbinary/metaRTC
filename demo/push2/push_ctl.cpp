@@ -86,7 +86,7 @@ PushCtl::~PushCtl() {
 void PushCtl::start() {
     // ui->m_b_record->setEnabled(false);
     if (!m_isStartpush) {
-        yang_info("start");
+        yang_info("start================");
         m_isStartpush = !m_isStartpush;
         m_url = "http://192.168.3.247:9060/index/api/whip?app=live&stream=test";
         yang_post_message(YangM_Push_Connect_Whip, 0,
