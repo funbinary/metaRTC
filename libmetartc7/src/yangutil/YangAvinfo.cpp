@@ -70,14 +70,12 @@ void YangContext::init(char *filename) {
 #else
 	yang_init_avinfo(&avinfo);
 #endif
-
 }
 
 void YangContext::init() {
 	yang_init_avinfo(&avinfo);
 	initExt();
 }
-
 
 void YangContext::initExt() {
 

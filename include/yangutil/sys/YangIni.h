@@ -22,6 +22,8 @@ typedef struct{
 #ifdef __cplusplus
 extern "C"{
 #endif
+int32_t yang_ini_readStringValue(char* filename,const char *section, const char *key,char *val, const char *p_defaultStr);
+int32_t yang_ini_readIntValue(char* filename,const char *section, const char *key,	int32_t p_defaultInt);
 void yang_create_ini(YangIni* ini,const char *filename);
 void yang_create_ini2(YangIni *ini, char *fullpathfile);
 void yang_destroy_ini(YangIni* ini);

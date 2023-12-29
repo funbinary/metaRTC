@@ -3,10 +3,13 @@
 #include <yangutil/sys/YangSocket.h>
 #include <yangutil/sys/YangString.h>
 #include <yangpush/YangPushCommon.h>
+#include "yangutil/sys/YangIni.h"
 
 PushCtl::PushCtl() {
     m_context = std::make_shared<YangContext>();
+    char *filename = "yang_config.ini";
     m_context->init("yang_config.ini");
+
     m_context->avinfo.video.videoEncoderFormat = YangI420;
 #if Yang_Enable_Openh264
     m_context->avinfo.enc.createMeta = 0;
@@ -36,8 +39,8 @@ PushCtl::PushCtl() {
     char s[128] = {0};
     memset(m_context->avinfo.rtc.localIp, 0, sizeof(m_context->avinfo.rtc.localIp));
     yang_getLocalInfo(m_context->avinfo.sys.familyType, m_context->avinfo.rtc.localIp);
-    sprintf(s, "http://192.168.3.247:9060/index/api/whip?app=live&stream=test");
-
+    //sprintf(s, "http://192.168.3.247:9060/index/api/whip?app=live&stream=test");
+    yang_ini_readStringValue(filename,"rtc", "url",s, "http://192.168.3.247:9060/index/api/whip?app=live&stream=test");
     m_hasAudio = false;
 
     m_context->avinfo.rtc.enableDatachannel = yangfalse;
@@ -63,7 +66,6 @@ PushCtl::PushCtl() {
 
 
     m_message->start();
-
     if (m_videoType == Yang_VideoSrc_Screen) {
         yang_post_message(YangM_Push_StartScreenCapture, 0, NULL);
     } else if (m_videoType == Yang_VideoSrc_Camera) {
@@ -88,7 +90,12 @@ void PushCtl::start() {
     if (!m_isStartpush) {
         yang_info("start================");
         m_isStartpush = !m_isStartpush;
-        m_url = "http://192.168.3.247:9060/index/api/whip?app=live&stream=test";
+        char *filename = "yang_config.ini";
+        char url[128] = {0};
+        yang_ini_readStringValue(filename,"rtc", "url",url, "http://192.168.3.247:9060/index/api/whip?app=live&stream=test");
+        m_url = url;
+        yang_info("url:%s", m_url.data());
+//        m_url = "http://192.168.3.247:9060/index/api/whip?app=live&stream=test";
         yang_post_message(YangM_Push_Connect_Whip, 0,
                           NULL, (void *) m_url.c_str());
         // yang_post_message(YangM_Push_Connect,0,NULL,(void*)m_url.c_str());
