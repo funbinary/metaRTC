@@ -8,7 +8,6 @@
 #include <yangutil/sys/YangLog.h>
 #include <yangutil/sys/YangThread.h>
 #include <yangutil/yangavinfotype.h>
-
 void yang_post_message(int32_t st, int32_t uid, YangSysMessageI *mhandle,void* user) {
 	if (YangSysMessageHandle::m_instance){
         yang_info("putmessage:%d", st);
@@ -87,7 +86,7 @@ void YangSysMessageHandle::putMessage(YangSysMessageI *handle, int32_t pst,
 	m_sysMessages.push_back(mes);
 	yang_thread_mutex_unlock(&m_mutex);
 	mes=NULL;
-
+    yang_info("state: %d",m_waitState);
 	if(m_waitState){
 		yang_thread_mutex_lock(&m_lock);
 		yang_thread_cond_signal(&m_cond_mess);

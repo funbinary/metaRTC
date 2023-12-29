@@ -1,0 +1,36 @@
+/workspace/learn/my_metaRTC/release/bin/push2
+Yang INFO: capture from:/dev/video2
+
+driver name uvcvideo card = USB3. 0 capture: USB3. 0 captur cap = 84a00001
+
+{ pixelformat = ''MJPG'', description = ''Motion-JPEG'' }
+DISCRETE: line-183 0: {1920*1080}
+0.frameinterval:1/60
+ 1.frameinterval:1/30
+ 2.frameinterval:1/25
+ 3.frameinterval:1/20
+ 4.frameinterval:1/10
+
+{ pixelformat = ''YUYV'', description = ''YUYV 4:2:2'' }
+DISCRETE: line-183 0: {1920*1080}
+0.frameinterval:1/5
+ Yang INFO: putmessage:1
+Yang INFO: startloop
+Yang INFO: before cond
+Yang INFO: state: 0
+Yang INFO: start================
+Yang INFO: message size:1
+Yang INFO: push message:1
+Yang INFO: handleMessage:1
+Yang INFO: putmessage:5
+Yang INFO: state: 0
+[17:06:08] Yang ERROR: start video capture error:0
+Yang INFO: push message:5
+Yang INFO: handleMessage:5
+Yang INFO: publish:http://192.168.3.247:9060/index/api/whip?app=live&stream=test
+
+ Yang INFO: putmessage:1
+Yang INFO: start================
+Yang INFO: putmessage:5
+Yang INFO: startloop
+Yang INFO: before cond

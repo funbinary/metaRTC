@@ -38,7 +38,7 @@ PushCtl::PushCtl() {
     yang_getLocalInfo(m_context->avinfo.sys.familyType, m_context->avinfo.rtc.localIp);
     sprintf(s, "http://192.168.3.247:9060/index/api/whip?app=live&stream=test");
 
-    m_hasAudio = m_videoType == Yang_VideoSrc_Screen ? false : true;
+    m_hasAudio = false;
 
     m_context->avinfo.rtc.enableDatachannel = yangfalse;
 

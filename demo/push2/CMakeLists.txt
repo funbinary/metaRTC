@@ -8,6 +8,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 add_executable(push2
         main.cpp
         push_ctl.cpp
+        function_traits.h
+        NoticeCenter.cpp
+        util.cpp
         yangpush/YangPushCapture.cpp
         yangpush/YangPushEncoder.cpp
         yangpush/YangPushFactory.cpp
