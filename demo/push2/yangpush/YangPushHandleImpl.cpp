@@ -109,6 +109,7 @@ YangVideoBuffer* YangPushHandleImpl::getPreVideoBuffer() {
 
 int YangPushHandleImpl::publish(char* url,yangbool isWhip) {
 
+    yang_info("publish:%s",url);
 	int err = Yang_Ok;
 	memset(&m_url,0,sizeof(m_url));
     if(!isWhip){
