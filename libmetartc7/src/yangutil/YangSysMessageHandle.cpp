@@ -97,9 +97,9 @@ void YangSysMessageHandle::putMessage(YangSysMessageI *handle, int32_t pst,
 
 void YangSysMessageHandle::startLoop() {
    m_loop = 1;
-    yang_info("startloop");
    yang_thread_mutex_unlock(&m_lock);
     yang_thread_mutex_lock(&m_lock);
+    yang_info("startloop");
 
     while (m_loop) {
 
@@ -119,7 +119,6 @@ void YangSysMessageHandle::startLoop() {
             m_sysMessages.erase(m_sysMessages.begin());
             yang_thread_mutex_unlock(&m_mutex);
         }
-
     }
     yang_thread_mutex_unlock(&m_lock);
 }
