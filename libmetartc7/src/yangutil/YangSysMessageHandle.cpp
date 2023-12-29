@@ -106,6 +106,7 @@ void YangSysMessageHandle::startLoop() {
         m_waitState=yangtrue;
         yang_thread_cond_wait(&m_cond_mess, &m_lock);
         m_waitState=yangfalse;
+        yang_info("message size:%d",m_sysMessages.size());
 
         while (m_sysMessages.size()>0) {
             auto m = m_sysMessages.front();
