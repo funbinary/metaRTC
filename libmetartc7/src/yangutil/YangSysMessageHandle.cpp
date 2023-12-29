@@ -10,8 +10,11 @@
 #include <yangutil/yangavinfotype.h>
 
 void yang_post_message(int32_t st, int32_t uid, YangSysMessageI *mhandle,void* user) {
-	if (YangSysMessageHandle::m_instance)
-		YangSysMessageHandle::m_instance->putMessage(mhandle, st, uid, 0,user);
+	if (YangSysMessageHandle::m_instance){
+        yang_info("putmessage:%d", st);
+        YangSysMessageHandle::m_instance->putMessage(mhandle, st, uid, 0,user);
+    }
+
 }
 void yang_post_state_message(int32_t st, int32_t uid, int32_t handleState,YangSysMessageI *mhandle) {
 	if (YangSysMessageHandle::m_instance)
