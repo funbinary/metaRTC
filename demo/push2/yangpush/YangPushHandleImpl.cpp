@@ -152,6 +152,7 @@ int YangPushHandleImpl::publish(char* url,yangbool isWhip) {
 		m_cap->startVideoEncoding();
 
         if(isWhip){
+            yang_info("publish whip:%s", url);
              err = m_rtcPub->init(url);
 
         }else{
