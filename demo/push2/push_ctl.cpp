@@ -121,14 +121,14 @@ void PushCtl::receiveSysMessage(YangSysMessage *mss, int32_t err) {
         case YangM_Push_Disconnect:
             break;
         case YangM_Push_StartScreenCapture:
-            yang_error("error:%d", err);
+            yang_error("start screen capture error:%d", err);
             break;
         case YangM_Push_StartVideoCapture: {
-            yang_error("error:%d", err);
+            yang_error("start video capture error:%d", err);
             break;
         }
         case YangM_Push_StartOutCapture: {
-            yang_error("error:%d", err);
+            yang_error("start out capture error:%d", err);
             break;
         }
         case YangM_Push_SwitchToCamera:

@@ -113,6 +113,7 @@ void yang_destroy_certificate( YangCertificate* cer){
 int32_t g_yang_srtp_inited=-1;
 
 void g_yang_create_srtp(){
+    yang_info("g_yang_create_srtp\n");
 	   if(g_yang_srtp_inited==-1){
 		// Initialize SRTP first.
 	    	g_yang_srtp_inited=srtp_init();
