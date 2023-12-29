@@ -108,7 +108,9 @@ void YangSysMessageHandle::startLoop() {
         m_waitState=yangfalse;
 
         while (m_sysMessages.size()>0) {
-            handleMessage(m_sysMessages.front());
+            auto m = m_sysMessages.front();
+            yang_info("push message:%d",m->messageId);
+            handleMessage(m);
             m_sysMessages.front()->handle = NULL;
             delete m_sysMessages.front();
             m_sysMessages.front() = NULL;
