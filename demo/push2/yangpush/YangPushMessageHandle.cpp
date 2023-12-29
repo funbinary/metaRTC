@@ -37,7 +37,7 @@ void YangPushMessageHandle::handleMessage(YangSysMessage *mss) {
 
 
 	int32_t ret = Yang_Ok;
-
+    yang_info("handleMessage:%d",mss->messageId);
 	switch (mss->messageId) {
 	case YangM_Push_StartVideoCapture:
     {
